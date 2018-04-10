@@ -1,0 +1,36 @@
+﻿syntax = "proto3";
+package mikesgrpcdemo;
+
+// SERVICES
+
+service MikesGrpcDemo {
+
+	rpc GetContactInfo (Name) returns (ContactInfo) {}
+
+	rpc GetGroceries (GroceryRequest) returns (stream GroceryResponse) {}
+
+}
+
+
+
+// MESSAGES
+
+message Name {
+	string name = 1;
+}
+
+message ContactInfo {
+	string name = 1;
+	string email = 2;
+	string phoneNum = 3;
+}
+
+
+
+message GroceryRequest {
+	int32 items = 1;
+}
+
+message GroceryResponse {
+	string grocery = 1;
+}
